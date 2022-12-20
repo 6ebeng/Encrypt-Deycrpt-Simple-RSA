@@ -70,7 +70,6 @@ const dictionary =  {
   function decryptRSA(messageToDecrypt, privateKey, dictionary) {
     // Convert the message and private key to integers
     let message = messageToDecrypt.map(Number);
-    //console.log(message)
     let key = privateKey.match(/[ 0-9,]+/g)[0].split(',').map(Number);
     console.log("d = " + key[0]);
     console.log("n = " + key[1]);
@@ -81,8 +80,6 @@ const dictionary =  {
       let d = key[0];
       let n = key[1];
       let decryptedNum = (BigInt(num) ** BigInt(d)) % BigInt(n);
-      //console.log(padWithZeros(decryptedNum))
-      //console.log(getKeyByValue(dictionary,decryptedNum.toString()) || "Incorrect")
       decryptedNumMessage.push(padWithZeros(decryptedNum));
     }
   
